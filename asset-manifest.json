@@ -1,14 +1,14 @@
 {
-  "main.css": "/fullstack-node-app/static/css/main.c3ce7e8a.chunk.css",
-  "main.js": "/fullstack-node-app/static/js/main.99bc5469.chunk.js",
-  "main.js.map": "/fullstack-node-app/static/js/main.99bc5469.chunk.js.map",
-  "static/js/1.fa92c112.chunk.js": "/fullstack-node-app/static/js/1.fa92c112.chunk.js",
-  "static/js/1.fa92c112.chunk.js.map": "/fullstack-node-app/static/js/1.fa92c112.chunk.js.map",
+  "main.css": "/fullstack-node-app/static/css/main.93cd2939.chunk.css",
+  "main.js": "/fullstack-node-app/static/js/main.b676f119.chunk.js",
+  "main.js.map": "/fullstack-node-app/static/js/main.b676f119.chunk.js.map",
+  "static/js/1.4a34e45d.chunk.js": "/fullstack-node-app/static/js/1.4a34e45d.chunk.js",
+  "static/js/1.4a34e45d.chunk.js.map": "/fullstack-node-app/static/js/1.4a34e45d.chunk.js.map",
   "runtime~main.js": "/fullstack-node-app/static/js/runtime~main.bc55cb3b.js",
   "runtime~main.js.map": "/fullstack-node-app/static/js/runtime~main.bc55cb3b.js.map",
   "static/media/logo.svg": "/fullstack-node-app/static/media/logo.5d5d9eef.svg",
-  "static/css/main.c3ce7e8a.chunk.css.map": "/fullstack-node-app/static/css/main.c3ce7e8a.chunk.css.map",
+  "static/css/main.93cd2939.chunk.css.map": "/fullstack-node-app/static/css/main.93cd2939.chunk.css.map",
   "index.html": "/fullstack-node-app/index.html",
-  "precache-manifest.b6bab568ec598968d9fb1ac793420ffc.js": "/fullstack-node-app/precache-manifest.b6bab568ec598968d9fb1ac793420ffc.js",
+  "precache-manifest.28e391039339c163612af3fff8917055.js": "/fullstack-node-app/precache-manifest.28e391039339c163612af3fff8917055.js",
   "service-worker.js": "/fullstack-node-app/service-worker.js"
 }
