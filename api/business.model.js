@@ -1,7 +1,7 @@
 // business.model.js
 
 const mongoose = require('mongoose');
-const Schema - mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // Define collection and schema for fullstack-business
 
@@ -21,4 +21,4 @@ let Business = new Schema({
     collection: 'fullstack-business'
 });
 
-module.exports = mongoos.model('Business', Business)
+module.exports = mongoose.model('Business', Business)

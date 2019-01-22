@@ -19,7 +19,7 @@ businessRoutes.route('/add').post(function(req, res) {
 });
 
 // Defines get data(index or listing) route
-businessRoutes.route('/').length(function(req, res) {
+businessRoutes.route('/').get(function(req, res) {
     Business.find(function(err, businesses){
         if(err) {
             console.log(err);

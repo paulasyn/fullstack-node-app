@@ -16,7 +16,6 @@ export default class Create extends Component {
         }
     }
 
-
     onChangePersonName(e) {
         this.setState({
             person_name: e.target.value
