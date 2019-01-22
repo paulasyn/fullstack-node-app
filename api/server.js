@@ -12,7 +12,7 @@ const businessRoute = require('./business.route');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, {useNewUrlParser: true}).then(
     () => {console.log('Database is connected') },
-    er => {console.log('Cannot connect to the database' + err)}
+    err => {console.log('Cannot connect to the database' + err)}
 );
 
 
