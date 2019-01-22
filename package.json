@@ -4,8 +4,12 @@
   "private": true,
   "homepage": "https://paulasyn.github.io/fullstack-node-app",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "jquery": "^3.3.1",
+    "mongoose": "^5.4.6",
     "popper": "^1.0.1",
     "popper.js": "^1.14.6",
     "react": "^16.7.0",
@@ -31,6 +35,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "nodemon": "^1.18.9"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulasyn/fullstack-node-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulasyn/fullstack-node-app/issues"
   }
 }
