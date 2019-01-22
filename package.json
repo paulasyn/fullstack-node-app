@@ -31,6 +31,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "axios": "^0.18.0",
     "gh-pages": "^2.0.1"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
