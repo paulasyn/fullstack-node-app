@@ -4,12 +4,8 @@
   "private": true,
   "homepage": "https://paulasyn.github.io/fullstack-node-app",
   "dependencies": {
-    "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
     "jquery": "^3.3.1",
-    "mongoose": "^5.4.6",
     "popper": "^1.0.1",
     "popper.js": "^1.14.6",
     "react": "^16.7.0",
@@ -23,8 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start-dev": "./node_modules/nodemon/bin/nodemon.js ./bin/www"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
