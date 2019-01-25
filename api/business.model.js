@@ -18,7 +18,7 @@ let Business = new Schema({
         type: Number
     }
 },{
-    collection: 'fullstack-business'
+    collection: 'business'
 });
 
 module.exports = mongoose.model('Business', Business)

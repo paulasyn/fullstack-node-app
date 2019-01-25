@@ -3,6 +3,7 @@
 const express = require('express');
 const businessRoutes = express.Router();
 
+
 //require business models in our routes module
 let Business = require('./business.model');
 
@@ -20,7 +21,7 @@ businessRoutes.route('/add').post(function(req, res) {
 
 // Defines get data(index or listing) route
 businessRoutes.route('/').get(function(req, res) {
-    Business.find(function(err, businesses){
+    Business.find(function (err, businesses){
         if(err) {
             console.log(err);
         }
@@ -33,14 +34,14 @@ businessRoutes.route('/').get(function(req, res) {
 // Defined edit route
 businessRoutes.route('/edit/:id').get(function(req, res) {
     let id = req.params.id;
-    Business.findById(id, function(err, business) {
+    Business.findById(id, function (err, business) {
         res.json(business);
     });
 });
 
 // Define update route
 businessRoutes.route('/update:id').post(function(req, res) {
-    Business.findById(req.params.id, function(errb, business) {
+    Business.findById(req.params.id, function(err, business) {
         if (!business){
             res.status(404).send("data not found");
         }
@@ -53,7 +54,7 @@ businessRoutes.route('/update:id').post(function(req, res) {
             })
         .catch(err => {
             res.status(400).send("Unable to update the database!");
-        });
+            });
         }
     });
 });

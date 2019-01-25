@@ -21,16 +21,15 @@ export default class Create extends Component {
             person_name: e.target.value
         });
     }
-
     onChangeBusinessName(e) {
         this.setState({
-            person_name: e.target.value
+            business_name: e.target.value
         });
     }
 
     onChangeGstNumber(e) {
         this.setState({
-            person_name: e.target.value
+            business_gst_number: e.target.value
         });
     }
 
@@ -43,21 +42,12 @@ export default class Create extends Component {
         }; 
         axios.post('http://localhost:4000/business/add', obj)
         .then(res => console.log(res.data));
+        
         this.setState({
             person_name: '',
             business_name: '',
             business_gst_number: ''
-        })
-        // console.log(`The values are ${this.state.person_name}, 
-        // ${this.state.business_name}, 
-        // and ${this.state.business_gst_number}`)
-        // this.setState({
-        //     person_name:'',
-        //     business_name:'',
-        //     business_gst_number:''
-        // };
-       
-        
+        });
     }
 
     render() {
