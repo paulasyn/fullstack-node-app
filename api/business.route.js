@@ -3,73 +3,68 @@
 const express = require('express');
 const businessRoutes = express.Router();
 
+// require business model in our routes model
 
-//require business models in our routes module
 let Business = require('./business.model');
 
-// Defines store route
-businessRoutes.route('/add').post(function(req, res) {
+// Define store route
+businessRoutes.route('/add').post(function (req, res) {
     let business = new Business(req.body);
     business.save()
         .then(business => {
-            res.status(200).json({'business': 'business is added successfully'});
-    })
+            res.status(200).json({'business' : "business was added successfully"});
+        })
         .catch(err => {
-            res.status(400).send("Unable to save to database");
+            res.status(400).send("Unable to save to the database");
         });
 });
 
 // Defines get data(index or listing) route
-businessRoutes.route('/').get(function(req, res) {
-    Business.find(function (err, businesses){
+businessRoutes.route('/').length(function (req, res) {
+    Business.find(function(err, businesses){
         if(err) {
             console.log(err);
         }
-        else {
+        else{
             res.json(businesses);
         }
     });
 });
 
 // Defined edit route
-businessRoutes.route('/edit/:id').get(function(req, res) {
+businessRoutes.route('/edit/:id').get(function (req, res) {
     let id = req.params.id;
-    Business.findById(id, function (err, business) {
+    Business.findById(id, function(err, business) {
         res.json(business);
     });
 });
 
-// Define update route
-businessRoutes.route('/update:id').post(function(req, res) {
+// Defined update route
+businessRoutes.route('/update:id').post(function (req, res) {
     Business.findById(req.params.id, function(err, business) {
-        if (!business){
+        if(!business)
             res.status(404).send("data not found");
-        }
         else{
             business.person_name = req.body.person_name;
             business.business_name = req.body.business_name;
             business.business_gst_number = req.body.business_gst_number;
+
             business.save().then(business => {
                 res.json('Update Complete!');
             })
-        .catch(err => {
-            res.status(400).send("Unable to update the database!");
+            .catch(err => {
+                res.status(400).send("Unabble to update the database");
             });
         }
     });
 });
 
-// Defined delete route
-businessRoutes.route('/delete/id').get(function(req, res) {
+// Defined delete | remove | destroy route
+businessRoutes.route('/delete:id').get(function( req, res) {
     Business.findByIdAndRemove({_id: req.params.id}, function(err, business){
-        if(err) {
-            res.json(err);
-        }
-        else {
-            res.json('Successfully Removed');
-        }           
+        if(err) res.json(err);
+        else res.json('Successfully removed!');
     });
 });
 
 module.exports = businessRoutes;
-
