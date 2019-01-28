@@ -17,7 +17,7 @@ export default class Index extends Component {
                 })
         }
 
-        TableRow(){
+        tabRow(){
             return this.state.business.map(function(object, i){
                 return <TableRow obj={object} key={i} />;
             });
@@ -37,7 +37,7 @@ export default class Index extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.tableRow() }
+                        { this.tabRow() }
                     </tbody>
                 </table>
             </div>
