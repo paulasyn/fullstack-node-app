@@ -10,7 +10,7 @@ export default class Index extends Component {
         componentDidMount(){
             axios.get('http://localhost:4000/business')
                 .then(response => {
-                    this.setState({ business: response.data }):
+                    this.setState({ business: response.data });
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -37,7 +37,7 @@ export default class Index extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.tabRow() }
+                        { this.tableRow() }
                     </tbody>
                 </table>
             </div>
