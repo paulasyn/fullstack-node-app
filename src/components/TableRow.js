@@ -1,6 +1,11 @@
 // TableRow.js
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+// eslint-disable-next-line no-unused-expressions
+<Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
+
 class TableRow extends Component {
     render(){ 
         return(
