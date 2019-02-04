@@ -31,7 +31,7 @@ export default class Index extends Component {
                     <thead>
                         <tr>
                             <th>Person</th>
-                            <th>Busimess</th>
+                            <th>Business</th>
                             <th>GST Number</th>
                             <th colsspan="2">Action</th>
                         </tr>
