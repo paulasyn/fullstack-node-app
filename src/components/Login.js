@@ -1,6 +1,7 @@
 //Login.js
 
 import React, {Component} from 'react';
+import './uploadScreen';
 import axios from 'axios';
 
 
@@ -27,9 +28,6 @@ class Login extends Component {
 
                 if(response.data.code === 200){
                     console.log("Login Successful!");
-                    var uploadScreen = [];
-                    uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-                        self.props.appContext.setState({LoginPage: [], uploadScreen: uploadScreen})
                 }
                 else if(response.data.code === 204){
                     console.log("Email and Password do not match");
@@ -80,9 +78,4 @@ class Login extends Component {
         );
     }
 }
-
-const style = {
-    margin:15,
-};
-
 export default Login;
