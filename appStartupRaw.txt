@@ -1,0 +1,55 @@
+# starts fullstack-node-app workspace
+
+--open iTerm2--
+tell application "iTerm"
+	create window with default profile "default"
+	tell current session of current window
+		set name to "nodemon server start"
+		# start the api server with nodemon
+		set cmd to "cd /Users/paulasyn/Development/fullstack-node-app/api && npm start"
+		delay 0.5
+		write text cmd
+		
+		split horizontally with same profile
+	end tell
+	
+	tell current tab of current window
+		set newSession2 to last session
+	end tell
+	
+	tell newSession2
+		set name to "mongo server"
+		# opens fullstack-node-app/api directory and starts mongodb server
+		set cmd to "cd /Users/paulasyn/Development/fullstack-node-app/ && mongod"
+		delay 0.5
+		select
+		write text cmd
+		split horizontally with default profile
+	end tell
+	
+	tell current tab of current window
+		set newSession3 to last item of sessions
+	end tell
+	
+	tell newSession3
+		select
+		# navigate to directory, start the node server
+		set name to "node server"
+		set cmd to "cd /Users/paulasyn/Development/fullstack-node-app/ && npm start"
+		delay 0.5
+		write text cmd
+		split vertically with default profile
+	end tell
+	
+	tell current tab of current window
+		set newSession4 to last item of sessions
+	end tell
+	
+	tell newSession4
+		# opens 4th tab under first tab to navigate to directory and open up VS Code
+		select
+		set cmd to "cd /Users/paulasyn/Development/fullstack-node-app/ && git pull && code ."
+		write text cmd
+	end tell
+end tell
+
