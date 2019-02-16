@@ -8,7 +8,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./DB.js');
 const businessRoute = require('./business.route');
-const usersRoute = require('./users.routes');
+const usersRoute = require('./users.route');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, {useNewUrlParser: true}).then(
