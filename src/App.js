@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-ro
 import Create from './components/create.component';
 import Edit from './components/edit.component';
 import Index from './components/index.component';
+import Register from './components/register.component';
 
 class App extends Component {
   render() {
@@ -23,18 +24,25 @@ class App extends Component {
                 </li>
 
                 <li className="nav-item">
+                  <Link to={'/register'} className="nav-link">Register</Link>
+                </li>
+                
+                <li className="nav-item">
                   <Link to={'/create'} className="nav-link">Create</Link>
                 </li>
 
                 <li className="nav-item">
                   <Link to={'/index'} className="nav-link">Index</Link>
                 </li>
+
+              
               </ul> 
             </div>
             
           </nav> <br/>
           <h2>Welcome to REACT test!</h2> <br/>
           <Switch>
+            <Route path='/register' component={ Register } />
             <Route exact path='/create' component={ Create } />
             <Route path='/edit/:id' component={ Edit } />
             <Route path='/index' component={ Index } />

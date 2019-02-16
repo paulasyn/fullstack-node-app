@@ -18,7 +18,7 @@ let Users = new Schema ({
         required: true
     },
 
-    date: {
+    dateAdded: {
         type: Date,
         deafult: Date.now
     }

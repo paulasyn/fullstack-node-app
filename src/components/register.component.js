@@ -1,92 +1,103 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class Create extends Component {
+export default class Register extends Component {
     constructor(props) {
         super(props);
-        this.onChangePersonName = this.onChangePersonName.bind(this);
-        this.onChangeBusinessName = this.onChangeBusinessName.bind(this);
-        this.onChangeGstNumber = this.onChangeGstNumber.bind(this);
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onGetDate = this.onGetDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        
 
         this.state = {
-            person_name: '',
-            business_name: '',
-            business_gst_number: ''
+            name: '',
+            email: '',
+            password: '',
+            dateAdded: ''
         }
     }
 
-    onChangePersonName(e) {
+    onChangeName(e) {
         this.setState({
-            person_name: e.target.value
+            name: e.target.value
         });
     }
-    onChangeBusinessName(e) {
+    onChangeEmail(e) {
         this.setState({
-            business_name: e.target.value
+            email: e.target.value
         });
     }
 
-    onChangeGstNumber(e) {
+    onChangePassword(e) {
         this.setState({
-            business_gst_number: e.target.value
+            password: e.target.value
+        });
+    }
+
+    onGetDate(e) {
+        this.setState({
+            dateAdded: new Date()
         });
     }
 
     onSubmit(e) {
         console.log("Submitting request to DB");
-        console.log("person name: " + this.state.person_name);
+        console.log("person name: " + this.state.name);
         e.preventDefault();
         const obj = {
-            person_name: this.state.person_name,
-            business_name: this.state.business_name,
-            business_gst_number: this.state.business_gst_number
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            dateAdded: this.state.dateAdded
         }; 
-        axios.post('http://localhost:4000/business/add', obj).then(res => console.log(res.data));
+        axios.post('http://localhost:4000/users/add', obj).then(res => console.log(res.data));
 
-        this.setState({
-            person_name: '',
-            business_name: '',
-            business_gst_number: ''
+        this.setState = ({
+            name: '',
+            email: '',
+            password: '',
+            dateAdded: ''
         })
     }
 
     render() {
         return (
             <div style={{marginTop:10}}>
-                <h3>Add New Business</h3>
+                <h3>New User</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add Person Name: </label>
                         <input 
                             type="text" 
                             className="form-control"
-                            value={this.state.person_name}
-                            onChange={this.onChangePersonName}
+                            value={this.state.name}
+                            onChange={this.onChangeName}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Add Business Name: </label>
+                        <label>Email: </label>
                         <input 
-                            type="text" 
+                            type="email" 
                             className="form-control"
-                            value={this.state.business_name}
-                            onChange={this.onChangeBusinessName}
+                            value={this.state.email}
+                            onChange={this.onChangeEmail}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Add GST Number: </label>
+                        <label>Password: </label>
                         <input 
-                            type="text" 
+                            type="password" 
                             className="form-control"
-                            value={this.state.business_gst_number}
-                            onChange={this.onChangeGstNumber}
+                            value={this.state.password}
+                            onChange={this.onChangePassword}
                         />
                     </div>
                     <div className="form-group">
                         <input 
                             type="submit" 
-                            value="Register Business" 
+                            value="Register Account" 
                             className="btn btn-primary"
                         />
                     </div>
