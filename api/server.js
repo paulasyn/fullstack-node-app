@@ -16,12 +16,13 @@ mongoose.connect(config.DB, {useNewUrlParser: true}).then(
     err => { console.log('Cannot connect to the database' +err) }
 );
 
-
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+// creating bbusiness endpoint
 app.use('/business', businessRoute);
+// creating users endpoint
 app.use('/users', usersRoute)
 
 app.listen(PORT, function(){
