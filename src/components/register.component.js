@@ -7,7 +7,7 @@ export default class Register extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
-        this.onGetDate = this.onGetDate.bind(this);
+        this.onChangePassword2 = this.onChangePassword2.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         
 
@@ -15,7 +15,7 @@ export default class Register extends Component {
             name: '',
             email: '',
             password: '',
-            dateAdded: ''
+            password2: '',
         }
     }
 
@@ -36,29 +36,34 @@ export default class Register extends Component {
         });
     }
 
-    onGetDate(e) {
+    onChangePassword2(e) {
         this.setState({
-            dateAdded: new Date()
+            password2: e.target.value
         });
     }
 
-    onSubmit(e) {
-        console.log("Submitting request to DB");
-        console.log("person name: " + this.state.name);
-        e.preventDefault();
-        const obj = {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            dateAdded: this.state.dateAdded
-        }; 
-        axios.post('http://localhost:4000/users/add', obj).then(res => console.log(res.data));
+    onSubmit(e) { // TODO: figure out why the if statement doesn't work
+        if (this.state.password === this.state.password2){
+            console.log("Submitting request to DB");
+            console.log("person name: " + this.state.name);
+            e.preventDefault();
+            const obj = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                dateAdded: new Date().toLocaleString()
+            };
+            axios.post('http://localhost:4000/users/add', obj).then(res => console.log(res.data));
+        }
+        else{
+            console.log("Passwords Don't Match.")
+        }
 
-        this.setState = ({
+        this.setState({
             name: '',
             email: '',
             password: '',
-            dateAdded: ''
+            password2: ''
         })
     }
 
@@ -92,6 +97,15 @@ export default class Register extends Component {
                             className="form-control"
                             value={this.state.password}
                             onChange={this.onChangePassword}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Verify Password: </label>
+                        <input 
+                            type="password" 
+                            className="form-control"
+                            value={this.state.password2}
+                            onChange={this.onChangePassword2}
                         />
                     </div>
                     <div className="form-group">
