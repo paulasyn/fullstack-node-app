@@ -8,6 +8,20 @@ import Create from './components/create.component';
 import Edit from './components/edit.component';
 import Index from './components/index.component';
 import Register from './components/register.component';
+import CreateGroup from './components/group.component'
+
+// const AuthRoute = ({ component: Component, ...rest}) => (
+//   <Route {...rest} render={props => (
+//     fakeAuth.isAuthenticated ? (
+//       <Component {...props} />
+//     ) : (
+//       <Redirect to ={{
+//         pathname: '/login',
+//         state { from: props.location }
+//       }} />
+//     )
+//   )}/>
+// )
 
 class App extends Component {
   render() {
@@ -35,6 +49,9 @@ class App extends Component {
                   <Link to={'/index'} className="nav-link">Index</Link>
                 </li>
 
+                <li className="nav-item">
+                  <Link to={'/groups'} className="nav-link">Create Group</Link>
+                </li>
               
               </ul> 
             </div>
@@ -45,7 +62,9 @@ class App extends Component {
             <Route path='/register' component={ Register } />
             <Route exact path='/create' component={ Create } />
             <Route path='/edit/:id' component={ Edit } />
+            <Route path='/groups' component={ CreateGroup } />
             <Route path='/index' component={ Index } />
+            
           </Switch> 
         </div>
       </Router>

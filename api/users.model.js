@@ -20,7 +20,7 @@ let Users = new Schema ({
 
     dateAdded: {
         type: Date,
-        deafult: Date.now
+        default: Date.now
     }
 }, {
     collection: 'users'

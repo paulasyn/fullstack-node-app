@@ -73,7 +73,7 @@ export default class Register extends Component {
                 <h3>New User</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add Person Name: </label>
+                        <label>Name: </label>
                         <input 
                             type="text" 
                             className="form-control"
