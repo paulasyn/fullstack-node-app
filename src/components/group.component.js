@@ -18,20 +18,23 @@ export default class CreateGroup extends Component {
             person2_name: '',
             person1_ID: '',
             person2_ID: '',
-            usersList: [],
             user:'',
-            users: []
+            users: [{
+                value:'', 
+                label: ''
+            }],
+            selected_value: ''
         }
     }
 
     async componentDidMount() {
         try {
             const res = await axios.get('http://localhost:4000/users/');
-            console.log('👉 Returned data:', res.data);
-            this.setState({users: res.data})
+            let users = res.data.map( user => ({ value: user._id, label: user.name }));
+            this.setState({users: users, selected_value: res.data[0].name});
 
         } catch (e){
-            console.log('error ${e}');
+            console.log('error ', e);
         }
 
     }   
@@ -69,7 +72,6 @@ export default class CreateGroup extends Component {
     onSubmit(e) {
         console.log("Submitting request to DB");
         console.log("Group name: " + this.state.group_name);
-        console.log("Names are" + this.state.usersList);
         e.preventDefault();
         const obj = {
             group_name: this.state.group_name,
@@ -89,6 +91,11 @@ export default class CreateGroup extends Component {
         })
     }
 
+    handleChange = (selected_value) => {
+        this.setState({ selected_value });
+        console.log(`Option selected:`, selected_value);
+      }
+
     render() {
 
         return (
@@ -96,7 +103,7 @@ export default class CreateGroup extends Component {
                 <h3>Create New Group</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add Group Name: </label>
+                        <label>Create Group Name: </label>
                         <input 
                             type="text" 
                             className="form-control"
@@ -105,14 +112,16 @@ export default class CreateGroup extends Component {
                         />
                     </div>
 
-                    <label>Choose User in Group: </label>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-4"></div>
+                    <div className="from-group">
+                    <label>Add User to Group: </label>
                             {/* insert dropdown here */}
-                                
-                            <div className="col-md-4"></div>
-                            </div>
+                            <Select
+                                        name="form-user"
+                                        value={this.state.selected_value}
+                                        options={this.state.users}
+                                        onChange={this.handleChange}
+                                    />
+                            {/* <div className="col-md-4"></div> */}
                         </div>
                     {/* <div className="form-group">
                         <label>Add Person 1 Name: </label>
@@ -140,6 +149,7 @@ export default class CreateGroup extends Component {
                             onChange={this.onChangeGstNumber}
                         />
                     </div> */}
+                    <p></p>
                     <div className="form-group">
                         <input 
                             type="submit" 
