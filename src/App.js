@@ -9,6 +9,7 @@ import Edit from './components/edit.component';
 import Index from './components/index.component';
 import Register from './components/register.component';
 import CreateGroup from './components/group.component'
+import Login from './components/login.component';
 
 // const AuthRoute = ({ component: Component, ...rest}) => (
 //   <Route {...rest} render={props => (
@@ -59,7 +60,8 @@ class App extends Component {
           </nav> <br/>
           <h2>Welcome to REACT test!</h2> <br/>
           <Switch>
-            <Route path='/register' component={ Register } />
+            {/* <Route path='/register' component={ Register } /> */}
+            <Route exact path='/login' component={ Login } />
             <Route exact path='/create' component={ Create } />
             <Route path='/edit/:id' component={ Edit } />
             <Route path='/groups' component={ CreateGroup } />
